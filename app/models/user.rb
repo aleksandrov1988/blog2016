@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
 
 
   validates :name, presence: true, length: {in: 3..200}
-  validates :email, presence: true, uniqueness: {case_sensetive: false}
-  validates :password, length: {minimum: 6}, confirmation: true, presence: {if: :new_record?}, allow_blank: {unless: :new_record?}
+  validates :email, presence: true, uniqueness: {case_sensetive: false}, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
+  validates :password, length: {minimum: 6}, presence: {if: :new_record?}, allow_blank: {unless: :new_record?}
   validates :role, presence: true, inclusion: {in: 0...ROLES.size}
 
   before_validation :set_default_role
