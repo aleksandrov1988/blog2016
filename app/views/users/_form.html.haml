@@ -1,0 +1,13 @@
+= form_for @user do |f|
+  =error_messages_for(@user)
+  .form-group
+    =f.label :name
+    =f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :email
+    = f.email_field :email, class: 'form-control'
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: 'form-control'
+  .actions
+    = f.submit nil, class: 'btn btn-primary'
