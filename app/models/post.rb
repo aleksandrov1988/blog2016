@@ -7,7 +7,11 @@ class Post < ActiveRecord::Base
   validates :body, presence: true
   validates :user, presence: true
 
+  def self.create_by?(user, current_user)
+    current_user && (user == current_user || current_user.admin?)
+  end
+
   def edit_by?(u)
-    user.post_editor?(u)
+    self.class.create_by?(user, u)
   end
 end

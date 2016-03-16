@@ -58,7 +58,7 @@ class PostsController < ApplicationController
   end
 
   def check_editor
-    unless @user.post_editor?(@current_user)
+    unless Post.create_by?(@user, @current_user)
       redirect_to root_path, notice: 'Доступ запрещен', status: 403
     end
   end

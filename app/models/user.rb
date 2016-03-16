@@ -18,10 +18,6 @@ class User < ActiveRecord::Base
     self.role ||= 0
   end
 
-  def post_editor?(u)
-    u && (self == u || admin?)
-  end
-
   def admin?
     role == 1
   end
