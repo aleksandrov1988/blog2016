@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:new, :create]
-  before_action :check_editor, only: [:new, :create]
+  before_action :check_create, only: [:new, :create]
   before_action :check_edit, only: [:edit, :update, :destroy]
 
   # GET /posts
@@ -57,7 +57,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
 
-  def check_editor
+  def check_create
     unless Post.create_by?(@user, @current_user)
       redirect_to root_path, notice: 'Доступ запрещен', status: 403
     end

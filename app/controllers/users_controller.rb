@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.ordering.page(params[:page]).per(1)
+    @users = User.ordering.page(params[:page])
   end
 
   def show
