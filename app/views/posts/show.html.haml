@@ -1,15 +1,13 @@
-%p#notice= notice
+%ol.breadcrumb
+  %li=link_to @post.user.name, @post.user
+  %li.active=@post.title
+.page-header
+  .pull-right.text-muted=l(@post.created_at, format: :long)
+  %h1=@post.title  
+  .clearfix
 
-%p
-  %b Title:
-  = @post.title
-%p
-  %b Body:
-  = @post.body
-%p
-  %b User:
-  = @post.user
-
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+-if @post.edit_by?(@current_user)
+  .btn-toolbar
+    =link_to 'Редактировать', edit_post_path(@post), class: 'btn btn-primary'
+    =link_to 'Удалить', @post, class: 'btn btn-danger', data: {method: :delete, confirm: 'Вы уверены?'}
+=@post.body

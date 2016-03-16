@@ -1,8 +1,19 @@
 ru:
+  views:
+    pagination:
+      first: '<<'
+      last: '>>'
+      previous: '<'
+      next: '>'
   activerecord:
     models:
       user: Пользователь
     attributes:
+      post:
+        user: Пользователь
+        user_id: Пользователь
+        title: Заголовок
+        body: Текст
       user:
         name: Имя
         email: Адрес электронной почты

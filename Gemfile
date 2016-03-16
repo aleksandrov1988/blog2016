@@ -48,3 +48,4 @@ end
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'rails-i18n'
+gem 'kaminari'

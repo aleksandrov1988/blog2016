@@ -1,18 +1,10 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Password:
-  = @user.password
-%p
-  %b Role:
-  = @user.role
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+.page-header
+  %h1=@user.name
+-if @user.post_editor?(@current_user)
+  .btn-toolbar
+    =link_to "Добавить запись", new_post_path(user_id: @user.id), class: 'btn btn-primary'
+-if @posts.blank?
+  .alert.alert-info Записей не найдено
+-else
+  -@posts.each do |post|
+    =render 'posts/post', post: post

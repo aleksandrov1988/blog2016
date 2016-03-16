@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :posts, ->{ordering}, dependent: :destroy
 
+  scope :ordering, ->{order(:name)}
+
 
 
   validates :name, presence: true, length: {in: 3..200}
@@ -14,6 +16,14 @@ class User < ActiveRecord::Base
 
   def set_default_role
     self.role ||= 0
+  end
+
+  def post_editor?(u)
+    u && (self == u || admin?)
+  end
+
+  def admin?
+    role == 1
   end
 
 

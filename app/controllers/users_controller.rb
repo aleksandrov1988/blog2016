@@ -1,15 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  # GET /users
-  # GET /users.json
   def index
-    @users = User.all
+    @users = User.ordering.page(params[:page]).per(1)
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
+    @posts = @user.posts.page(params[:page])
   end
 
   # GET /users/new

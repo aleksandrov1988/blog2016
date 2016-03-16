@@ -1,27 +1,7 @@
-%h1 Listing users
+%h1 Блоги
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Email
-      %th Password
-      %th Role
-      %th
-      %th
-      %th
+.list-group
+  -@users.each do |user|
+    =link_to user.name, user, class: 'list-group-item'
 
-  %tbody
-    - @users.each do |user|
-      %tr
-        %td= user.name
-        %td= user.email
-        %td= user.password
-        %td= user.role
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New User', new_user_path
+=paginate @users

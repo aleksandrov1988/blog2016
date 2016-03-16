@@ -1,0 +1,7 @@
+.panel.panel-default
+  .panel-heading
+    .pull-right=l(post.created_at, format: :long)
+    =link_to post.title, post
+    .clearfix
+  .panel-body
+    =post.body
