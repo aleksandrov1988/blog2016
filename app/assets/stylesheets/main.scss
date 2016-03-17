@@ -1,7 +1,13 @@
+$font-family-sans-serif: 'Roboto', sans-serif;
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,700,700italic&subset=latin,cyrillic-ext,cyrillic);
 
 
 body{
   padding-top: 60px;
+}
+
+.btn-toolbar{
+  margin: 10px 0;
 }

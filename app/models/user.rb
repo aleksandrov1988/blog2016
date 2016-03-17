@@ -22,5 +22,9 @@ class User < ActiveRecord::Base
     role == 1
   end
 
+  def edit_by?(u)
+    u && (self == u || u.admin?)
+  end
+
 
 end
