@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: 
+  position: 1
+  post_id: 
+  comment: MyString
+
+two:
+  image: 
+  position: 1
+  post_id: 
+  comment: MyString

@@ -1,0 +1,11 @@
+%ol.breadcrumb
+  %li=link_to @attachment.post.user.name, @attachment.post.user
+  %li=link_to @attachment.post.title, @attachment.post
+  %li.active=show_attachment(@attachment)
+.pull-right
+  =link_to @attachment, data: {method: :delete, confirm: 'Вы уверены?'}, class: 'btn btn-danger' do
+    %span.glyphicon.glyphicon-trash
+%h1 Редактирование вложения
+.clearfix
+
+= render 'form'

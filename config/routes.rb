@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :attachments
   get 'sessions/new'
 
   resources :posts

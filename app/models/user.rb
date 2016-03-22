@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   ROLES = ['Пользователь', 'Администратор']
   has_secure_password
-  has_many :posts, ->{ordering}, dependent: :destroy
+  has_many :posts, ->{ordering.full}, dependent: :destroy
 
   scope :ordering, ->{order(:name)}
 

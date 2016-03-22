@@ -1,0 +1,19 @@
+= form_for @attachment do |f|
+  =error_messages_for(@attachment)
+  .row
+    .col-md-3
+      -if @attachment.image?
+        =image_tag @attachment.image.url(:thumb), alt: @attachment.comment
+      .form-group
+        = f.label :image
+        = f.file_field :image
+    .col-md-3
+      .form-group
+        = f.label :position
+        = f.number_field :position, class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :comment
+        = f.text_field :comment, class: 'form-control'
+  .actions
+    = f.submit nil, class: 'btn btn-primary'

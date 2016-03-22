@@ -7,13 +7,23 @@ ru:
       next: '>'
   activerecord:
     models:
+      attachment: Вложение
+      post: Сообщение
       user: Пользователь
     attributes:
+      attachment:
+        image: Изображение
+        position: Позиция
+        post: Сообщение
+        post_id: Сообщение
+        comment: Комментарий
       post:
         user: Пользователь
         user_id: Пользователь
         title: Заголовок
         body: Текст
+        attachments: Вложения
+        files: Вложения
       user:
         name: Имя
         email: Адрес электронной почты

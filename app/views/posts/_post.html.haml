@@ -5,3 +5,12 @@
     .clearfix
   .panel-body
     =post.body
+  -if post.attachments.present?
+    .panel-footer
+      %ul.list-inline
+        -post.attachments.each do |attachment|
+          %li
+            =link_to_attachment attachment
+            -if post.edit_by?(@current_user)
+              =link_to edit_attachment_path(attachment), class: 'text-danger' do
+                %span.glyphicon.glyphicon-edit

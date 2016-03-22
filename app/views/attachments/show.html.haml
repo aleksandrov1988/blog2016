@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Image:
+  = @attachment.image
+%p
+  %b Position:
+  = @attachment.position
+%p
+  %b Post:
+  = @attachment.post
+%p
+  %b Comment:
+  = @attachment.comment
+
+= link_to 'Edit', edit_attachment_path(@attachment)
+\|
+= link_to 'Back', attachments_path
